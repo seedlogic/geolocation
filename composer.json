@@ -1,9 +1,9 @@
 {
-    "name":"seedlogic-php-utils/Geolocation",
+    "name":"seedlogic-php-utils/geolocation",
     "type": "library",
     "description": "Seedlogic PHP Geolocation Library",
     "keywords": [],
-    "homepage": "https://github.com/seedlogic/Geolocation",
+    "homepage": "https://github.com/seedlogic/geolocation",
     "license": "proprietary",
     "authors": [
         {

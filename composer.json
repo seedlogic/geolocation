@@ -1,0 +1,20 @@
+{
+    "name":"seedlogic-php-utils/geolocation",
+    "type": "library",
+    "description": "Seedlogic PHP Geolocation Library",
+    "keywords": [],
+    "homepage": "https://github.com/seedlogic/geolocation",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Brandon Worf",
+            "email": "brandon@seedlogic.com",
+            "role": "Software Engineer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "~5.3.1|~6.0",
+        "monolog/monolog": "^1.23.0"
+    }
+}

@@ -16,5 +16,10 @@
         "php": "^7.0",
         "guzzlehttp/guzzle": "~5.3.1|~6.0",
         "monolog/monolog": "^1.23.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Seedlogic\\Utils\\Geolocation\\": "src/"
+        }
     }
 }

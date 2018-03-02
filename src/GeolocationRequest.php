@@ -66,17 +66,19 @@ class GeolocationRequest
      **/
     public function fetchLocationData()
     {
-        if($this->makeRequest('http://freegeoip.net/json/'))
+        $user_ip = $_SERVER['REMOTE_ADDR'];
+
+        if($this->makeRequest('http://freegeoip.net/json/' . $user_ip))
         {
             $this->source = 'primary';
             $this->data = json_decode($this->response->getBody(), true);
         }
-        elseif($this->makeRequest('http://ip-api.com/json'))
+        elseif($this->makeRequest('http://ip-api.com/json/' . $user_ip))
         {
             $this->source = 'secondary';
             $this->data = json_decode($this->response->getBody(), true);
         }
-        elseif($this->makeRequest('http://www.geoplugin.net/json.gp'))
+        elseif($this->makeRequest('http://www.geoplugin.net/json.gp?ip=' . $user_ip))
         {
             $this->source = 'tertiary';
             $this->data = json_decode($this->response->getBody(), true);

@@ -39,22 +39,10 @@ if(!defined('GEOLOC_BASENAME'))
 
 function get_location() 
 {
-	if (session_status() == PHP_SESSION_NONE) 
-	{
-		session_start();
-	}
+	$location = new GeolocationRequest();
+	$location->fetchLocationData();
 
-	if(isset($_SESSION['geolocation']))
-	{
-		return $_SESSION['geolocation'];
-	}
-	else
-	{
-		$location = new GeolocationRequest();
-		$location->fetchLocationData();
-
-		return $location->getData();
-	}
+	return $location->getData();
 }
 
 function get_location_item($item) 

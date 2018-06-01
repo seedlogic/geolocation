@@ -4,7 +4,7 @@
     "description": "Seedlogic PHP Geolocation Library",
     "keywords": [],
     "homepage": "https://github.com/seedlogic/geolocation",
-    "license": "proprietary",
+    "version": "0.1",
     "authors": [
         {
             "name": "Brandon Worf",

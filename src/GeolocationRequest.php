@@ -47,6 +47,13 @@ class GeolocationRequest
     private $source;
 
     /**
+     * The IP Stack API access key
+     * @access private
+     * @var string
+     **/
+    private $access_key = '66811f9619d7fc47a8af86f87e833c56';
+
+    /**
      * @Brief: Object constructor
      *
      * @access public
@@ -68,7 +75,7 @@ class GeolocationRequest
     {
         $user_ip = $_SERVER['REMOTE_ADDR'];
 
-        if($this->makeRequest('http://freegeoip.net/json/' . $user_ip))
+        if($this->makeRequest('http://api.ipstack.com/' . $user_ip . '?access_key=' . $this->access_key . '&output=json'))
         {
             $this->source = 'primary';
             $this->data = json_decode($this->response->getBody(), true);
@@ -103,10 +110,17 @@ class GeolocationRequest
      **/
     public function makeRequest(string $request_uri = null)
     {
-        $this->request = new Request('GET', $request_uri);
-        $this->response = $this->client->send($this->request);
-
-        return $this->response->getStatusCode() === 200;
+        try
+        {
+            $this->request = new Request('GET', $request_uri);
+            $this->response = $this->client->send($this->request);
+    
+            return $this->response->getStatusCode() === 200;
+        }
+        catch(\GuzzleHttp\Exception\ClientException $e)
+        {
+            return false;
+        }
     }
 
     /**
